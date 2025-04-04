@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = ({ isDarkMode, toggleDarkMode, viewMode, setViewMode }) => {
   return (
-    <header className="flex items-center justify-between">
+    <header className="flex items-center justify-between px-6 py-4">
       <div className="flex items-center space-x-2">
         <h1 className="text-xl font-bold">InvestSmart.ai</h1>
       </div>
@@ -40,6 +40,11 @@ const Header = ({ isDarkMode, toggleDarkMode, viewMode, setViewMode }) => {
           className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
         >
           {isDarkMode ? "🌙" : "☀️"}
+        </button>
+
+        {/* Profile Button */}
+        <button className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
+          <span className="text-sm">👤</span>
         </button>
       </div>
     </header>

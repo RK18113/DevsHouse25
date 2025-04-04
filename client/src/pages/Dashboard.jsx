@@ -443,9 +443,9 @@ const Dashboard = () => {
     switch (viewMode) {
       case "chat":
         return (
-          <div className="grid lg:grid-cols-2 gap-6">
+          <div className="h-full grid lg:grid-cols-2 gap-6">
             {/* Left Column */}
-            <div className="space-y-6">
+            <div className="h-full overflow-y-auto space-y-6 pr-3">
               <div>
                 <h1
                   className={`text-4xl ${
@@ -541,7 +541,7 @@ const Dashboard = () => {
             <div
               className={`${
                 isDarkMode ? "bg-gray-800/50" : "bg-gray-50"
-              } rounded-xl overflow-hidden h-full`}
+              } rounded-xl h-full overflow-hidden`}
             >
               <ChatBot
                 isDarkMode={isDarkMode}
@@ -554,9 +554,9 @@ const Dashboard = () => {
 
       default:
         return (
-          <div className="grid lg:grid-cols-2 gap-6">
+          <div className="h-full grid lg:grid-cols-2 gap-6">
             {/* Left Column */}
-            <div className="space-y-6">
+            <div className="h-full overflow-y-auto space-y-6 pr-3">
               <div>
                 <h1
                   className={`text-4xl ${
@@ -729,7 +729,7 @@ const Dashboard = () => {
             </div>
 
             {/* Right Column */}
-            <div>
+            <div className="h-full overflow-y-auto pr-3">
               {selectedInvestment ? (
                 <div className="space-y-6">
                   <div className="flex justify-between items-center">
@@ -922,9 +922,9 @@ const Dashboard = () => {
 
   return (
     <div
-      className={`min-h-screen ${
+      className={`h-screen flex flex-col ${
         isDarkMode ? "bg-gray-900 text-gray-100" : "bg-white text-gray-800"
-      } p-6`}
+      }`}
     >
       <Header
         isDarkMode={isDarkMode}
@@ -936,9 +936,13 @@ const Dashboard = () => {
         }}
       />
 
-      <div className="max-w-[1920px] mx-auto mt-6">{renderMainContent()}</div>
+      {/* Update padding here */}
+      <div className="flex-1 overflow-hidden px-6 pb-6">
+        <div className="h-full max-w-[1920px] mx-auto">
+          {renderMainContent()}
+        </div>
+      </div>
 
-      {/* Wishlist Editor Modal */}
       {showWishlistEditor && (
         <WishlistEditorModal onClose={() => setShowWishlistEditor(false)} />
       )}
